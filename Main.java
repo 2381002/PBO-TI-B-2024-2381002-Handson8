@@ -13,6 +13,9 @@ public class Main {
         database.setup();
 
         // TodoListRepository todoListRepository = new TodoListRepositoryDbImpl(database);
-        // TodoListService todoListService = new TodoListServiceImplq();
+        TodoListRepository todoListRepository = new TodoListRepositoryDbImpl(database);
+        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+        TodoListView todoListView = new TodoListTerminalViewImpl(todoListService);
+        todoListView.run();
     }
 }
